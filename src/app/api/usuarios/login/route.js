@@ -8,7 +8,7 @@ export async function POST(req) {
       "Content-Type": "application/json",
     };
 
-    const url = `${BACKEND_URL}/api/usuarios/login`;
+    const url = `${BACKEND_URL}api/usuarios/login`;
     const options = {
       method: "POST",
       headers,

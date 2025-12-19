@@ -20,7 +20,7 @@ export async function GET(req) {
       headers["size"] = size;
     }
 
-    const url = `${BACKEND_URL}/api/carros`;
+    const url = `${BACKEND_URL}api/carros`;
 
     const response = await fetch(url, {
       method: "GET",
@@ -50,7 +50,7 @@ export async function POST(req) {
     }
 
     const body = await req.json();
-    const url = `${BACKEND_URL}/api/carros`;
+    const url = `${BACKEND_URL}api/carros`;
 
     const response = await fetch(url, {
       method: "POST",

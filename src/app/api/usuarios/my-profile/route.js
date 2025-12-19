@@ -11,7 +11,7 @@ export async function GET(req) {
       headers["Authorization"] = authHeader;
     }
 
-    const url = `${BACKEND_URL}/api/usuarios/my-profile`;
+    const url = `${BACKEND_URL}api/usuarios/my-profile`;
     const options = {
       method: "GET",
       headers,

@@ -13,7 +13,7 @@ async function handleRequest(req, method, paramsPromise) {
       headers["Authorization"] = req.headers.get("authorization");
     }
 
-    const url = `${BACKEND_URL}/api/carros/${id}`;
+    const url = `${BACKEND_URL}api/carros/${id}`;
     let options = { method, headers };
 
     if (method === "PUT") {
@@ -58,7 +58,7 @@ async function handleRequest(req, method, paramsPromise) {
 
     if (contentType.includes("application/json")) {
       const data = await response.json();
-      console.log(`Backend response for ${method} /api/carros/${id}:`, data);
+      console.log(`Backend response for ${method} api/carros/${id}:`, data);
       return Response.json(data, { status, headers: forwardedHeaders });
     }
 

@@ -10,7 +10,7 @@ async function handleRequest(req, method) {
       headers["Authorization"] = req.headers.get("authorization");
     }
 
-    let url = `${BACKEND_URL}/api/usuarios`;
+    let url = `${BACKEND_URL}api/usuarios`;
     let options = { method, headers };
 
     if (method === "GET") {
@@ -18,7 +18,7 @@ async function handleRequest(req, method) {
       const endpoint = searchParams.get("endpoint");
 
       if (endpoint === "my-profile") {
-        url = `${BACKEND_URL}/api/usuarios/my-profile`;
+        url = `${BACKEND_URL}api/usuarios/my-profile`;
       }
     } else if (method === "POST") {
       const body = await req.json();
@@ -28,7 +28,7 @@ async function handleRequest(req, method) {
       const endpoint = searchParams.get("endpoint");
 
       if (endpoint === "login") {
-        url = `${BACKEND_URL}/api/usuarios/login`;
+        url = `${BACKEND_URL}api/usuarios/login`;
       }
     }
 
