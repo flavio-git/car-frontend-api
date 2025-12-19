@@ -12,6 +12,7 @@ export async function GET(req) {
     }
 
     const url = `${BACKEND_URL}api/usuarios/my-profile`;
+    console.log("My Profile URL:", url);
     const options = {
       method: "GET",
       headers,

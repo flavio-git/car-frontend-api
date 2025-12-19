@@ -2,6 +2,8 @@ const BACKEND_URL = process.env.BACKEND_URL;
 
 async function handleRequest(req, method) {
   try {
+    console.log("Server side = /api/usuarios/route.js " + BACKEND_URL);
+
     const headers = {
       "Content-Type": "application/json",
     };
