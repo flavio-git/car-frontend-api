@@ -36,14 +36,12 @@ const Sidebar = () => {
   const [usuario, setUsuario] = useState(null);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const stored = localStorage.getItem("usuario");
-      if (stored) {
-        try {
-          setUsuario(JSON.parse(stored));
-        } catch {
-          setUsuario(null);
-        }
+    const stored = localStorage.getItem("usuario");
+    if (stored) {
+      try {
+        setUsuario(JSON.parse(stored));
+      } catch {
+        setUsuario(null);
       }
     }
   }, []);

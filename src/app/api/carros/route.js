@@ -6,20 +6,6 @@ export async function GET(req) {
       "Content-Type": "application/json",
     };
 
-    // if (req.headers.get("authorization")) {
-    //   headers["Authorization"] = req.headers.get("authorization");
-    // }
-
-    // const page = req.headers.get("page");
-    // const size = req.headers.get("size");
-
-    // if (page) {
-    //   headers["page"] = page;
-    // }
-    // if (size) {
-    //   headers["size"] = size;
-    // }
-
     const url = `${BACKEND_URL}api/carros`;
 
     const response = await fetch(url, {

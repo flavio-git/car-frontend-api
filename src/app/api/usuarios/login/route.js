@@ -9,7 +9,7 @@ export async function POST(req) {
     };
 
     const url = `${BACKEND_URL}api/usuarios/login`;
-    console.log("Login URL:", url);
+
     const options = {
       method: "POST",
       headers,

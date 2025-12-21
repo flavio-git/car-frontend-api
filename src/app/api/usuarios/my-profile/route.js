@@ -7,12 +7,13 @@ export async function GET(req) {
     };
 
     const authHeader = req.headers.get("authorization");
+
     if (authHeader) {
       headers["Authorization"] = authHeader;
     }
 
     const url = `${BACKEND_URL}api/usuarios/my-profile`;
-    console.log("My Profile URL:", url);
+
     const options = {
       method: "GET",
       headers,

@@ -1,20 +1,19 @@
-'use client';
+"use client";
 
-import { useEffect } from 'react';
-import { useRouter, usePathname } from 'next/navigation';
-import { Box } from '@mui/material';
-import Sidebar from '../../components/Sidebar';
-import Topbar from '../../components/Topbar';
+import { useEffect } from "react";
+import { useRouter, usePathname } from "next/navigation";
+import { Box } from "@mui/material";
+import Sidebar from "../../components/Sidebar";
+import Topbar from "../../components/Topbar";
 
 export default function ProtectedLayout({ children }) {
   const router = useRouter();
   const pathname = usePathname();
 
   useEffect(() => {
-    if (typeof window === 'undefined') return;
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
     if (!token) {
-      router.replace('/login');
+      router.replace("/login");
     }
   }, [router, pathname]);
 
@@ -28,5 +27,3 @@ export default function ProtectedLayout({ children }) {
     </div>
   );
 }
-
-
