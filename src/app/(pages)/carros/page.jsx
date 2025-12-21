@@ -24,29 +24,28 @@ const CarrosPage = () => {
   const loadCarros = async () => {
     const response = await fetch("/api/carros", {
       method: "GET",
-      headers: {
-        page: "0",
-        size: "100",
-      },
     });
+
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
+
     return await response.json();
   };
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const stored = localStorage.getItem("usuario");
-      if (stored) {
-        try {
-          setUsuario(JSON.parse(stored));
-        } catch {
-          setUsuario(null);
-        }
+    const stored = localStorage.getItem("usuario");
+
+    if (stored) {
+      try {
+        setUsuario(JSON.parse(stored));
+      } catch {
+        setUsuario(null);
       }
     }
+
     setLoading(true);
+
     loadCarros()
       .then((response) => {
         setCarros(response.data || response);
@@ -122,6 +121,8 @@ const CarrosPage = () => {
   ];
 
   const columns = [...baseColumns];
+
+  // Adiciona a coluna de ações somente se o usuário for administrador
   if (isAdmin) {
     columns.push({
       field: "actions",
