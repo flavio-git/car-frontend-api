@@ -2,8 +2,20 @@ const BACKEND_URL = process.env.BACKEND_URL;
 
 function buildForwardedHeaders(response) {
   const forwardedHeaders = {};
+
+  // Lista de Headers que nao devem ser encaminhados porque
+  // Next.js/Vercel rejeitara para a nova resposta
+  const blacklistedHeaders = [
+    "content-encoding",
+    "content-length",
+    "transfer-encoding",
+    "connection",
+  ];
+
   for (const [key, value] of response.headers.entries()) {
-    forwardedHeaders[key] = value;
+    if (!blacklistedHeaders.includes(key.toLowerCase())) {
+      forwardedHeaders[key] = value;
+    }
   }
   return forwardedHeaders;
 }
